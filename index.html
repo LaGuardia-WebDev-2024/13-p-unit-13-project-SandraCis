@@ -21,64 +21,81 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1>Quiz About Sandra</h1>
+    <img src= ""
     <hr />
-    <!-- Movie Question -->
+    <!-- Color Question -->
     <form id="movie-form">
       <label>
-        🎥 What is my favorite movie?
+          🎨 What my favorite color?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="Mint green">Mint green</option>
+          <option value="Pink">Pink</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Black">Black</option>
         </select>
       </label>
-      <button type="submit">Check Movie Answer</button>
+      <button type="submit">Check Color</button>
     </form>
-    <div id="movie-result"></div>
+    <div id="color-result"></div>
+    <img id ="color-image" src = "https://cdn.glitch.global/5cfc9eb4-4531-4cde-8b46-37904ea93f65/Screen%20Shot%202025-06-12%20at%209.47.30%20AM.png?v=1749736057815" alt="Mint Green" />
+         
     <hr />
-    <!-- Book Question -->
-    <form id="book-form">
+    <!-- Shoe Question -->
+    <form id="shoe-form">
       <label>
-        📖 What is my favorite book?
-        <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          👟 What my favotire type of shoe?
+        <select id="shoe-answer">
+          <option value="Sneakers">Sneakers</option>
+          <option value="Heels">Heels</option>
+          <option value="Boots">Boots</option>
+          <option value="Slides">Slides</option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit">Check Shoe Answer</button>
     </form>
-    <div id="book-result"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <div class="shoe-result"></div>
+    <img id= "shoe-image" src= "https://cdn.glitch.global/5cfc9eb4-4531-4cde-8b46-37904ea93f65/Screen%20Shot%202025-06-12%20at%209.54.18%20AM.png?v=1749736490067" alt= "Heals" />
+    <hr />
+   
+    <h2> 🎂 Hover over my birthdy memory!</h2>
+   <img
+        src= "https://cdn.glitch.global/5cfc9eb4-4531-4cde-8b46-37904ea93f65/8ae35a4e-d068-4c26-8645-8c2e8d54f3f1.JPG?v=1749736876878"
+        alt= "My sweet 16"
+        style = "diaplay; block"
+        />
+    <script 
+          src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      //Movie Question jQuery Code
-      $("#movie-form").on("submit", function (event) {
-        event.preventDefault();
+      //Color Question jQuery Code
+      $("#color-form").on("submit", function (e) {
+        e.preventDefault();
 
-        var $answer = $("#movie-answer");
-        var answer = $answer.val();
-
-        if (answer === "movie1") {
-          $("#movie-result").text("YESSSS!");
+        var $answer = $("#color-answer").val();
+        
+        if (answer === "Mint green") {
+          $("#movie-result").text("YESSSS!").hide().fadeIn(1000);
+          $("color-img").fadeIn(1000);
         } else {
-          $("#movie-result").text("Try Again!");
+          $("#color-result").text("Try Again!");
+          $("color-image").hide();
         }
       });
 
-      //Book Question jQuery Code
-      $("#book-form").on("submit", function (event) {
-        event.preventDefault();
+      //Shoe Question jQuery Code
+      $("#shoe-form").on("submit", function (e) {
+        e.preventDefault();
 
-        var $answer = $("#book-answer");
-        var answer = $answer.val();
+        var $answer = $("#shoe-answer").val();
+        
 
-        if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+        if (answer === "Heels") {
+          $("#shoe-result").text("Correct! Heels are my go-to!").hide().slideToggle(800);
+          $("shoe-image").slideDown(800);
         } else {
-          $("#book-result").text("Try Again!");
+          $("#shoe-result").text(" Nope! Try Again!");
+          
+          $("#shoe-image").slideUp(400);
         }
       });
     </script>
