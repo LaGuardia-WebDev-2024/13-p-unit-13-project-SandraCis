@@ -25,10 +25,10 @@ Select ONE Additional Feature to Add
     <img src= ""
     <hr />
     <!-- Color Question -->
-    <form id="movie-form">
+    <form id="color-form">
       <label>
           🎨 What my favorite color?
-        <select id="movie-answer">
+        <select id="color-answer">
           <option value="Mint green">Mint green</option>
           <option value="Pink">Pink</option>
           <option value="Yellow">Yellow</option>
@@ -54,15 +54,16 @@ Select ONE Additional Feature to Add
       </label>
       <button type="submit">Check Shoe Answer</button>
     </form>
-    <div class="shoe-result"></div>
-    <img id= "shoe-image" src= "https://cdn.glitch.global/5cfc9eb4-4531-4cde-8b46-37904ea93f65/Screen%20Shot%202025-06-12%20at%209.54.18%20AM.png?v=1749736490067" alt= "Heals" />
+    <div id="shoe-result"></div>
+    <img id= "shoe-image" src= "https://cdn.glitch.global/5cfc9eb4-4531-4cde-8b46-37904ea93f65/Screen%20Shot%202025-06-12%20at%209.54.18%20AM.png?v=1749736490067" alt="Heels" />
     <hr />
    
     <h2> 🎂 Hover over my birthdy memory!</h2>
    <img
+        id= "birthday-image"
         src= "https://cdn.glitch.global/5cfc9eb4-4531-4cde-8b46-37904ea93f65/8ae35a4e-d068-4c26-8645-8c2e8d54f3f1.JPG?v=1749736876878"
         alt= "My sweet 16"
-        style = "diaplay; block"
+        style = "diaplay: block; width: 300px;"
         />
     <script 
           src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -71,14 +72,14 @@ Select ONE Additional Feature to Add
       $("#color-form").on("submit", function (e) {
         e.preventDefault();
 
-        var $answer = $("#color-answer").val();
+        var answer = $("#color-answer").val();
         
         if (answer === "Mint green") {
-          $("#movie-result").text("YESSSS!").hide().fadeIn(1000);
-          $("color-img").fadeIn(1000);
+          $("#color-result").text("YESSSS!").hide().fadeIn(1000);
+          $("#color-image").fadeIn(1000);
         } else {
           $("#color-result").text("Try Again!");
-          $("color-image").hide();
+          $("#color-image").hide();
         }
       });
 
@@ -86,18 +87,28 @@ Select ONE Additional Feature to Add
       $("#shoe-form").on("submit", function (e) {
         e.preventDefault();
 
-        var $answer = $("#shoe-answer").val();
+        var answer = $("#shoe-answer").val();
         
 
         if (answer === "Heels") {
-          $("#shoe-result").text("Correct! Heels are my go-to!").hide().slideToggle(800);
-          $("shoe-image").slideDown(800);
+          $("#shoe-result").text("Correct! Heels are my go-to!").hide().slideDown(800);
+          $("#shoe-image").slideDown(800);
         } else {
           $("#shoe-result").text(" Nope! Try Again!");
           
           $("#shoe-image").slideUp(400);
         }
       });
+      
+      //Hover Feature
+      $("#birthday-img").hover(
+      function () {
+        $(this).css("border", "5px soild hotpink");
+      },
+        function (){
+        $(this).css("border", "none"); 
+        }
+      );
     </script>
   </body>
 
